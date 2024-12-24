@@ -2,8 +2,19 @@ pipeline{
     agent any
     stages{
         stage("sonar scan"){
+            agent{
+                docker{
+                    image 'maven'
+                }
+            }
             steps{
-                echo "sonar scan"
+                script{
+                    withSonarQubeEnv(credentialsId: 'sonar') {
+                       sh 'printenv'
+                       sh 'mvn sonar:sonar'
+                     }
+                }
+            
             }
         }
     }
