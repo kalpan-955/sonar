@@ -2,8 +2,16 @@ pipeline{
     agent any
     stages{
         stage('sonar scan'){
+            agent{
+                image 'maven'
+                args '-v /root/.m2:/root/'.m2
+            }
             steps{
-                echo "sonar"
+                script{
+                    sh "mvn clean install"
+
+                }
+            
             }
 
         }
