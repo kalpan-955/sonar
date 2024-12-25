@@ -18,4 +18,15 @@
   <build>
     <finalName>WebApp</finalName>
   </build>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexusdeploymentrepo</id>
+      <url>http://3.82.36.75:8081/repository/maven-hosted-snapshot/</url>
+    </snapshotRepository>
+	<repository>
+	  <id>nexusdeploymentrepo</id>
+      <url>http://3.82.36.75:8081/repository/maven-hosted-release/</url>
+    </repository>
+  
+  </distributionManagement>
 </project>
